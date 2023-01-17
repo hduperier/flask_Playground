@@ -1,55 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loan Default Prediction</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  
-  <style>
-    /* Add some custom styling */
-    body {
-      background-color: #1c1c1c; /* dark black color */
-    }
-    /* Add purple theme to the heading */
-    h1 {
-      margin-top: 50px;
-      margin-bottom: 30px;
-      color: #9b59b6; /* purple color */
-    }
-    /* Add purple theme to the form */
-    form {
-      background-color: #3e3e3e; /* dark grey color */
-      color: #9b59b6; /* purple color */
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    }
-    /* Add purple theme to the labels */
-    .form-group label {
-        color: #9b59b6; /* purple color */
-    }
-    /* Add purple theme to the input fields */
-    .form-control {
-        border-color: #9b59b6; /* purple color */
-    }
-    /* Add purple theme to the submit button */
-    button[type="submit"] {
-      background-color: #9b59b6; /* purple color */
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    /* Add hover effect for the button */
-    button[type="submit"]:hover {
-      background-color: #8e44ad; /* dark purple color */
-    }
-    a.purple-text {
-      color: #8e44ad; /* dark purple color */
-    }
-  </style>
+    <title>Loan Default Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        /* Add some custom styling */
+        body {
+          background-color: #1c1c1c; /* dark black color */
+          font-family: 'Open Sans', sans-serif;
+        }
+        /* Add purple theme to the heading */
+        h1.text-center {
+            color: #8e44ad; /* dark purple color */
+        }
+        /* Add purple theme to the input fields placeholder text */
+        ::-webkit-input-placeholder {
+            color: #8e44ad; /* dark purple color */
+        }
+        /* Add purple theme to the navigation bar text */
+        .navbar-nav a.nav-link {
+            color: #8e44ad; /* dark purple color */
+        }
+        /* Add some custom styling to the form */
+        form {
+            margin-top: 50px;
+        }
+        /* Add custom padding and margin to the form inputs */
+        form .form-group {
+            margin-bottom: 25px;
+        }
+        form .form-control {
+            padding: 12px;
+        }
+        /* Add custom border radius to the submit button */
+        form .btn {
+            border-radius: 25px;
+        }
+    </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -69,30 +58,56 @@
           <a class="nav-link text-light purple-text" href="#">Contact</a>
         </li>
       </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link" id="theme-switch" title="Switch Theme">
+            <i class="fas fa-lightbulb"></i>
+          </a>
+        </li>
+      </ul>
     </div>
   </nav>
   <div class="container">
     <h1 class="text-center">Loan Default Prediction</h1>
     <form>
       <div class="form-group">
-        <label for="credit_score">Credit Score</label>
-        <input type="number" class="form-control" id="credit_score" placeholder="Enter credit score">
+        <label for="loanAmount">Loan Amount</label>
+        <input type="number" class="form-control" id="loanAmount" placeholder="Enter loan amount">
+      </div>
+      <div class="form-group">
+        <label for="creditScore">Credit Score</label>
+        <input type="number" class="form-control" id="creditScore" placeholder="Enter credit score">
+      </div>
+      <div class="form-group">
+        <label for="loanPurpose">Loan Purpose</label>
+        <select class="form-control" id="loanPurpose">
+          <option>Debt Consolidation</option>
+          <option>Home Improvement</option>
+          <option>Business</option>
+          <option>Personal Loan</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="yearsEmployed">Years Employed</label>
+        <input type="number" class="form-control" id="yearsEmployed" placeholder="Enter years employed">
       </div>
       <div class="form-group">
         <label for="income">Income</label>
         <input type="number" class="form-control" id="income" placeholder="Enter income">
       </div>
-      <div class="form-group">
-    <label for="loan_amount">Loan Amount</label>
-    <input type="number" class="form-control" id="loan_amount" placeholder="Enter loan amount">
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="loan_term">Loan Term</label>
-    <input type="number" class="form-control" id="loan_term" placeholder="Enter loan term">
-  </div>
-  <button type="submit" class="btn btn-primary">Predict</button>
-</form>
-</div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script>
+        // JS code to switch the theme of the website
+        var themeSwitch = document.getElementById("theme-switch");
+        themeSwitch.addEventListener("click", function(){
+            document.body.classList.toggle("light-mode");
+        });
+  </script>
 </body>
 </html>
-      

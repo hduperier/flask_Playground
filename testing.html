@@ -39,8 +39,19 @@
       transition: background-color 0.3s ease;
     }
     
+    /* Add hover effect for the button */
     button[type="submit"]:hover {
       background-color: #0069d9;
+    }
+    
+    /* Add colors to the labels */
+    .form-group label {
+        color: #007bff;
+    }
+    
+    /* Add colors to the input fields */
+    .form-control {
+        border-color: #007bff;
     }
   </style>
 </head>
@@ -57,15 +68,16 @@
         <input type="number" class="form-control" id="income" placeholder="Enter income">
       </div>
       <div class="form-group">
-        <label for="loan_amount">Loan Amount</label>
-        <input type="number" class="form-control" id="loan_amount" placeholder="Enter loan amount">
-      </div>
-      <div class="form-group">
-        <label for="loan_term">Loan Term</label>
-        <input type="number" class="form-control" id="loan_term" placeholder="Enter loan term">
-      </div>
-      <button type="submit" class="btn btn-primary">Predict</button>
-    </form>
+    <label for="loan_amount">Loan Amount</label>
+    <input type="number" class="form-control" id="loan_amount" placeholder="Enter loan amount">
   </div>
+  <div class="form-group">
+    <label for="loan_term">Loan Term</label>
+    <input type="number" class="form-control" id="loan_term" placeholder="Enter loan term">
+  </div>
+  <button type="submit" class="btn btn-primary">Predict</button>
+</form>
+</div>
 </body>
 </html>
+      

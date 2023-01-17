@@ -1,64 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Default Predictor</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Add custom CSS styles here */
-        /* Add dark theme styles */
-        body.dark-theme {
-            background-color: #343a40;
-            color: #f8f9fa;
-        }
-        body.dark-theme input {
-            background-color: #f8f9fa;
-            color: #343a40;
-        }
-        /*Custom styles*/
-        /* Add font */
-        * {
-            font-family: 'Montserrat', sans-serif !important;
-        }
-        /* Add background gradient */
-        body {
-            background-image: linear-gradient(to right, #3f51b5, #5a55ae, #7b5fac);
-            background-size: cover;
-            background-attachment: fixed;
-        }
-        /* Add border radius to form fields */
-        input, select {
-            border-radius: 20px;
-        }
-        /* Add shadows to form fields */
-        input, select {
-            box-shadow: 0px 0px 10px #000000;
-        }
-        /* Add padding to form */
-        form {
-            padding: 20px;
-        }
-        /* Center form horizontally and vertically */
-        form {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        /* Add hover effect to submit button */
-        button[type='submit'] {
-            transition: all 0.3s ease;
-        }
-        button[type='submit']:hover {
-            background-color: #f8f9fa;
-            color: #3f51b5;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Default Prediction</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <form>
-            <div
+  <div class="container">
+    <h1 class="text-center">Loan Default Prediction</h1>
+    <form>
+      <div class="form-group">
+        <label for="credit_score">Credit Score</label>
+        <input type="number" class="form-control" id="credit_score" placeholder="Enter credit score">
+      </div>
+      <div class="form-group">
+        <label for="income">Income</label>
+        <input type="number" class="form-control" id="income" placeholder="Enter income">
+      </div>
+      <div class="form-group">
+        <label for="loan_amount">Loan Amount</label>
+        <input type="number" class="form-control" id="loan_amount" placeholder="Enter loan amount">
+      </div>
+      <div class="form-group">
+        <label for="loan_term">Loan Term</label>
+        <input type="number" class="form-control" id="loan_term" placeholder="Enter loan term">
+      </div>
+      <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+  </div>
+</body>
+</html>

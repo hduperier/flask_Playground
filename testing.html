@@ -100,10 +100,10 @@
         <label for="income">Income</label>
         <input type="number" class="form-control" id="income" placeholder="Enter income">
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      <button type="submit" class="btn btn-primary btn-block" onclick="makePrediction()">Submit</button>
     </form>
   </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script>
@@ -113,5 +113,25 @@
             document.body.classList.toggle("light-mode");
         });
   </script>
+  <script>
+        function makePrediction() {
+        var loanAmount = $("#loan_amount").val();
+        var creditScore = $("#credit_score").val();
+        var income = $("#income").val();
+
+        // make the HTTP request
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:5000/predict",
+            data: JSON.stringify({loan_amount: loanAmount, credit_score: creditScore, income: income}),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data) {
+        // handle the response from the API
+        console.log(data);
+    }
+  });
+}
+</script>
 </body>
 </html>

@@ -19,7 +19,7 @@ def predict():
     return jsonify(predictions)
 
 @app.route('/')
-def home():
+def index():
    return render_template('index.html')
 
 if __name__ == '__main__':

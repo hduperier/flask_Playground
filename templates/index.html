@@ -24,23 +24,14 @@
       background-color: var(--bg-color);
       color: var(--text-color);
     }
-    /* Add styles for the toggle button */
-    .toggle-btn {
-      background-color: transparent;
-      border: none;
-      color: var(--text-color);
-      cursor: pointer;
-    }
-    /* Add styles for the navigation bar */
-    #sidebar-wrapper {
+        /* Add styles for the navigation bar */
+        #sidebar-wrapper {
       position: absolute; /* Position the sidebar on the left */
       left: 0;
       width: 210px; /* Adjust the width as needed */
     }
     /* Add styles for the navigation links */
     .list-group {
-      position: absolute; /* Position the links at the bottom of the sidebar */
-      bottom: 0;
       width: 100%;
     }
     /* Add styles for the sidebar heading */
@@ -52,6 +43,11 @@
     .list-group-item {
       font-size: 1.1em;
     }
+    /* Add styles for the dark mode button */
+    .dark-mode-btn {
+      font-size: 1.1em;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -59,16 +55,16 @@
     <div class="bg-light" id="sidebar-wrapper">
       <div class="sidebar-heading d-flex justify-content-between align-items-center">
         Navigation
-        <button class="toggle-btn" onclick="toggleDarkMode()">
-          <i class="fas fa-moon"></i>
-        </button>
       </div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Home</a>
+        <a href="/" class="list-group-item list-group-item-action bg-light">Home</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">About</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Services</a>
-        <a href="loanPred.html" class="list-group-item list-group-item-action bg-light">Loan Default Calculator</a>
+        <a href="loanPred" class="list-group-item list-group-item-action bg-light">Loan Default Calculator</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Contact</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light dark-mode-btn" onclick="toggleDarkMode()">
+          <i class="fas fa-moon"></i> Dark Mode
+        </a>
       </div>
     </div>
     <div id="main">
@@ -85,14 +81,16 @@
       // If the current theme is light mode
       if(theme.classList.contains('dark-mode')) {
         theme.classList.remove('dark-mode');
-        // Change the icon to moon
-        document.querySelector('.toggle-btn i').classList.remove('fa-sun');
-        document.querySelector('.toggle-btn i').classList.add('fa-moon');
+        // Change the icon and text to dark mode
+        document.querySelector('.dark-mode-btn i').classList.remove('fa-sun');
+        document.querySelector('.dark-mode-btn i').classList.add('fa-moon');
+        document.querySelector('.dark-mode-btn').innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
       } else {
         theme.classList.add('dark-mode');
-        // Change the icon to sun
-        document.querySelector('.toggle-btn i').classList.remove('fa-moon');
-        document.querySelector('.toggle-btn i').classList.add('fa-sun');
+        // Change the icon and text to light mode
+        document.querySelector('.dark-mode-btn i').classList.remove('fa-moon');
+        document.querySelector('.dark-mode-btn i').classList.add('fa-sun');
+        document.querySelector('.dark-mode-btn').innerHTML = '<i class="fas fa-sun"></i> Light Mode';
       }
     }
   </script>

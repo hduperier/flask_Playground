@@ -9,26 +9,42 @@
     #main {
       margin-left: 210px; /* adjust as needed */
     }
+    /* Add styles for the navigation title in dark mode */
+    .bg-dark {
+      background-color: var(--nav-bg-color);
+    }
     /* Initialize the theme to light mode */
     :root {
       --bg-color: #f5f5f5;
       --text-color: #333;
+      --nav-bg-color: #fff;
+      --nav-text-color: #333;
     }
     /* Add styles for dark mode */
     .dark-mode {
       --bg-color: #333;
       --text-color: #f5f5f5;
+      --nav-bg-color: #333;
+      --nav-text-color: #f5f5f5;
     }
     /* Apply the theme to elements */
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
     }
-        /* Add styles for the navigation bar */
-        #sidebar-wrapper {
+    /* Add styles for the toggle button */
+    .toggle-btn {
+      background-color: transparent;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+    /* Add styles for the navigation bar */
+    #sidebar-wrapper {
       position: absolute; /* Position the sidebar on the left */
       left: 0;
       width: 210px; /* Adjust the width as needed */
+      background-color: var(--nav-bg-color);
     }
     /* Add styles for the navigation links */
     .list-group {
@@ -38,30 +54,50 @@
     .sidebar-heading {
       font-size: 1.2em;
       font-weight: bold;
+      color: var(--nav-text-color);
     }
     /* Add styles for the navigation links */
     .list-group-item {
       font-size: 1.1em;
+      color: var(--nav-text-color);
     }
     /* Add styles for the dark mode button */
     .dark-mode-btn {
       font-size: 1.1em;
       text-align: center;
+      color: var(--nav-text-color);
+    }
+    /* Add styles for the navigation title */
+    .nav-title {
+      padding: 0.75rem 1.25rem;
+      text-align: center;
+    }
+    /* Add styles for the navigation title in dark mode */
+    .dark-mode .nav-title {
+      color: var(--nav-color);
+      background-color: var(--nav-bg-color);
+    }
+    #sidebar-wrapper {
+      height: 100vh;
+    }
+    .dark-mode {
+      background-color: #333;
+      color: #f5f5f5;
     }
   </style>
 </head>
 <body>
   <div class="d-flex" id="wrapper">
-    <div class="bg-light" id="sidebar-wrapper">
-      <div class="sidebar-heading d-flex justify-content-between align-items-center">
-        Navigation
-      </div>
+    <div class="bg-light" id="sidebar-wrapper" class="dark-mode-bg">
+      <div class="sidebar-heading d-flex justify-content-between align-items-center nav-title" id="nav-title">
+        Personal Finance Playground
+      </div>        
       <div class="list-group list-group-flush">
-        <a href="/" class="list-group-item list-group-item-action bg-light">Home</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">About</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Services</a>
-        <a href="loanPred" class="list-group-item list-group-item-action bg-light">Loan Default Calculator</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Contact</a>
+        <a href="/" class="list-group-item list-group-item-action" id="home-link">Home</a>
+        <a href="#" class="list-group-item list-group-item-action" id="about-link">About</a>
+        <a href="#" class="list-group-item list-group-item-action" id="services-link">Services</a>
+        <a href="loanPred" class="list-group-item list-group-item-action" id="loan-link">Loan Default Calculator</a>
+        <a href="#" class="list-group-item list-group-item-action" id="contact-link">Contact</a>
         <a href="#" class="list-group-item list-group-item-action bg-light dark-mode-btn" onclick="toggleDarkMode()">
           <i class="fas fa-moon"></i> Dark Mode
         </a>
@@ -75,18 +111,40 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script>
-    function toggleDarkMode() {
+        function toggleDarkMode() {
       // Get the current theme
+      let navTitle = document.querySelector('#nav-title');
       let theme = document.querySelector(':root');
+      let homeLink = document.querySelector('#home-link');
+      let aboutLink = document.querySelector('#about-link');
+      let servicesLink = document.querySelector('#services-link');
+      let loanLink = document.querySelector('#loan-link');
+      let contactLink = document.querySelector('#contact-link');
       // If the current theme is light mode
       if(theme.classList.contains('dark-mode')) {
+        document.body.classList.toggle("dark-mode");
         theme.classList.remove('dark-mode');
+        homeLink.classList.remove('bg-dark');
+        aboutLink.classList.remove('bg-dark');
+        servicesLink.classList.remove('bg-dark');
+        loanLink.classList.remove('bg-dark');
+        contactLink.classList.remove('bg-dark');
+        navTitle.classList.toggle('bg-dark');
+        document.getElementById("sidebar-wrapper").classList.remove("dark-mode-bg");
         // Change the icon and text to dark mode
         document.querySelector('.dark-mode-btn i').classList.remove('fa-sun');
         document.querySelector('.dark-mode-btn i').classList.add('fa-moon');
         document.querySelector('.dark-mode-btn').innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
       } else {
         theme.classList.add('dark-mode');
+        homeLink.classList.add('bg-dark');
+        aboutLink.classList.add('bg-dark');
+        servicesLink.classList.add('bg-dark');
+        loanLink.classList.add('bg-dark');
+        contactLink.classList.add('bg-dark');
+        navTitle.classList.toggle('bg-dark');
+        document.body.classList.toggle("dark-mode");
+        document.getElementById("sidebar-wrapper").classList.add("dark-mode-bg");
         // Change the icon and text to light mode
         document.querySelector('.dark-mode-btn i').classList.remove('fa-moon');
         document.querySelector('.dark-mode-btn i').classList.add('fa-sun');

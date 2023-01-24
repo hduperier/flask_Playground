@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!--
+  <!DOCTYPE html> 
 <html>
   <head>
     <title>My Website</title>
@@ -107,3 +108,53 @@
               body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
           }
       </script>
+    -->
+
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>My Homepage</title>
+    <link rel="stylesheet" href="CSS/mystyle.css">
+  </head>
+
+  <body>
+    <header>
+      <nav id="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="loanPred">Contact</a></li>
+        </ul>
+        <button id="toggle-nav">Toggle Nav</button>
+      </nav>
+    </header>
+    <main>
+      <h1>Welcome to my homepage!</h1>
+      <p>I'm building this site to act as a directory to tools that I build.</p>
+    </main>
+    <footer>
+      <button id="toggle-theme">Toggle Theme</button>
+    </footer>
+  </body>
+
+</html>
+
+<script>
+  const toggleNav = document.getElementById("toggle-nav");
+  const navbar = document.getElementById("navbar");
+  const toggleTheme = document.getElementById("toggle-theme");
+
+  // Retractable navigation bar
+  toggleNav.addEventListener("click", () => {
+    navbar.classList.toggle("retract");
+  });
+
+  // Dark/light mode toggle
+  toggleTheme.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
+
+</script>

@@ -1,15 +1,46 @@
+/* Full website */
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-nav {
+/* Background of navbar and stuff */
+nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
     background-color: #5D4954;
     font-family: 'Poppins', sans-serif;
+}
+
+/* "The Nav" Customization on Navbar */
+.logo{
+ color: rgb(226, 226, 226);
+ text-transform: uppercase;
+ letter-spacing: 5px;
+ font-size: 20px;
+}
+
+/* Spacing ul line */
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+/* Removing Bullet Points before Nav links */
+.nav-links li{
+    list-style: none;
+}
+
+/* Custom text edit and customization*/
+.nav-links a{
+    color: rgb(226, 226, 226);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
 }
 

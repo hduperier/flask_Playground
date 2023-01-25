@@ -55,6 +55,7 @@ nav{
     height: 3px;
     background-color:rgb(226, 226, 226);
     margin: 5px;
+    transition: all 0.3s ease;
 }
 
 /* Setting up mobile view */
@@ -86,7 +87,7 @@ nav{
     }
 
     .nav-links li{
-        opacity: 1;
+        opacity: 0;
     }
 
     .burger{
@@ -112,14 +113,16 @@ nav{
 }
 
 /* Changing the burger */
-.toggle .line1{
-    transform: rotate(-45deg translateX(-5px, 6px));
+.tBurg .line1{
+    transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.toggle .line2{
+/* Changing the burger */
+.tBurg .line2{
     opacity: 0;
 }
 
-.toggle .line3{
-    transform: rotate(45deg translateX(-5px, 6px));
+/* Changing the burger */
+.tBurg .line3{
+    transform: rotate(45deg) translate(-5px, -6px);
 }

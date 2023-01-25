@@ -11,9 +11,15 @@ const navSlide = () => {
 
         // Animate Links
         navLinks.forEach((link, index) => {
-            const newLocal = 'navLinkFade 0.5s ease forwards ${index / 7}s';
-            link.style.animation = newLocal;
+            if(link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = 'navLinkFade 1.5s ease 0.3s 1 normal forwards';
+            }
         });
+
+        // Burger Animation
+        burger.classList.toggle('tBurg');
     });
 }
 

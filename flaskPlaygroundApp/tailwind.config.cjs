@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  content: ["./flaskPlaygroundApp/index.html", "./flaskPlaygroundApp/src/**/*.{js,jsx}"],
   mode: "jit",
   theme: {
     extend: {
